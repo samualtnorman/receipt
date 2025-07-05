@@ -1,3 +1,5 @@
+![Screen Shot 2025-07-05 at 23 51 30](https://github.com/user-attachments/assets/cee65d2d-e66d-44aa-92ef-f003330ab454)
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
