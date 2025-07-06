@@ -200,5 +200,7 @@ export const App = () => {
 				</tr>
 			</tbody>
 		</table>
+
+		<p><a href="https://github.com/samualtnorman/receipt">This project is open source.</a></p>
 	</>
 }
