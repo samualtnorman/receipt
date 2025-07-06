@@ -28,27 +28,20 @@ export const App = () => {
 
 				<Index each={people}>
 					{(getName, index) => <th>
-						<input
-							value={getName()}
-							onInput={({ target }) => {
-								setPeople(index, target.value)
-							}}
-						/>
+						<input value={getName()} onInput={({ target }) => {
+							setPeople(index, target.value)
+						}}/>
 
-						<button
-							onClick={() => {
-								setPeople(people => people.toSpliced(index, 1))
-							}}
-						>x</button>
+						<button onClick={() => {
+							setPeople(people => people.toSpliced(index, 1))
+						}}>x</button>
 					</th>}
 				</Index>
 
 				<td>
-					<button
-						onClick={() => {
-							setPeople(people.length, `new person`)
-						}}
-					>+</button>
+					<button onClick={() => {
+						setPeople(people.length, `new person`)
+					}}>+</button>
 				</td>
 			</tr>
 		</thead>
@@ -57,23 +50,16 @@ export const App = () => {
 			<For each={store}>
 				{(item, getIndex) => <tr>
 					<td>
-						<input
-							value={item.name}
-							onInput={({ target }) => {
-								setStore(getIndex(), `name`, target.value)
-							}}
-						/>
+						<input value={item.name} onInput={({ target }) => {
+							setStore(getIndex(), `name`, target.value)
+						}}/>
 					</td>
 
 					<td>
 						£
-						<input
-							type="number"
-							value={item.price}
-							onInput={({ target }) => {
-								setStore(getIndex(), `price`, Number(target.value))
-							}}
-						/>
+						<input type="number" value={item.price} onInput={({ target }) => {
+							setStore(getIndex(), `price`, Number(target.value))
+						}}/>
 					</td>
 
 					<For each={people}>
@@ -100,11 +86,9 @@ export const App = () => {
 					</For>
 
 					<td>
-						<button
-							onClick={() => {
-								setStore(store => store.toSpliced(getIndex(), 1))
-							}}
-						>x</button>
+						<button onClick={() => {
+							setStore(store => store.toSpliced(getIndex(), 1))
+						}}>x</button>
 					</td>
 				</tr>}
 			</For>
@@ -115,11 +99,9 @@ export const App = () => {
 				<td colSpan={people.length}/>
 
 				<td>
-					<button
-						onClick={() => {
-							setStore(store.length, { name: `new item`, price: 0, notPaying: [] })
-						}}
-					>+</button>
+					<button onClick={() => {
+						setStore(store.length, { name: `new item`, price: 0, notPaying: [] })
+					}}>+</button>
 				</td>
 			</tr>
 
@@ -128,19 +110,17 @@ export const App = () => {
 
 				<td>
 					£
-					<input
-						type="number"
-						value={getTotal()}
-						onInput={({ target }) => setTotal(Number(target.value))}
-					/>
+					<input type="number" value={getTotal()} onInput={({ target }) => {
+						setTotal(Number(target.value))
+					}}/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>Paying</th>
-
 				<td/>
-					<For each={people}>
+
+				<For each={people}>
 					{(_, getIndex) => {
 						const amPayingForAmount = () => store
 							.filter(item => !item.notPaying.includes(getIndex()))
